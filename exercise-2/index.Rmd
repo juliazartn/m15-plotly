@@ -1,0 +1,15 @@
+---
+title: 'M15: Exercise 2'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(plotly)
+
+map <- plot_ly(mtcars, x = ~cyl, y=~hp, text = rownames(mtcars))
+
+```
+
+Here is a chart made through plotly using the mcars dataset. 
+
+`r map`
