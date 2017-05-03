@@ -6,10 +6,24 @@ output: html_document
 ```{r setup, include=FALSE}
 library(plotly)
 
-map <- plot_ly(mtcars, x = ~cyl, y=~hp, text = rownames(mtcars))
+df <- mtcars[which(mtcars$hp < 150),]
+
+map <- plot_ly(df, x = ~hp, y=~cyl) %>%
+        add_annotations(x = df$hp, y = df$cyl, text = rownames(df))
+
+p <- plot_ly(
+  x = c("giraffes", "orangutans", "monkeys"),
+  y = c(20, 14, 23),
+  name = "SF Zoo",
+  type = "bar"
+)
+
+m <- hist(mtcars$mpg)
 
 ```
 
 Here is a chart made through plotly using the mcars dataset. 
 
 `r map`
+
+`r m`
